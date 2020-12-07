@@ -18,6 +18,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/sbadmin2', express.static(path.join(__dirname, 'node_modules/startbootstrap-sb-admin-2')));
+
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -37,5 +41,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
